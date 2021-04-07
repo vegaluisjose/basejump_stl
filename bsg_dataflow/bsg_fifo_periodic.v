@@ -41,24 +41,32 @@ module bsg_fifo_periodic
    , input        b_ready_and_i
    );
 
-  localparam fast2slow_lp  = (a_period_p > b_period_p);
-  localparam ratio_lp      = fast2slow_lp ? a_period_p : b_period_p;
+  if (a_period_p == b_period_p)
+    begin : ident
+      assign b_v_o = a_v_i;
+      assign a_ready_and_o = b_ready_and_i;
+    end
+  else
+    begin : period
+      localparam fast2slow_lp  = (a_period_p > b_period_p);
+      localparam ratio_lp      = fast2slow_lp ? a_period_p : b_period_p;
 
-  logic [ratio_lp-1:0] cnt_r;
-  wire fast_clk   = fast2slow_lp ? a_clk_i   : b_clk_i;
-  wire fast_reset = fast2slow_lp ? a_reset_i : b_reset_i;
-  bsg_counter_clear_up_one_hot
-   #(.max_val_p(ratio_lp-1))
-   counter
-    (.clk_i(fast_clk)
-     ,.reset_i(fast_reset)
+      logic [ratio_lp-1:0] cnt_r;
+      wire fast_clk   = fast2slow_lp ? a_clk_i   : b_clk_i;
+      wire fast_reset = fast2slow_lp ? a_reset_i : b_reset_i;
+      bsg_counter_clear_up_one_hot
+       #(.max_val_p(ratio_lp-1))
+       counter
+        (.clk_i(fast_clk)
+         ,.reset_i(fast_reset)
 
-     ,.clear_i(1'b0)
-     ,.up_i(1'b1)
-     ,.count_r_o(cnt_r)
-     );
-  assign b_v_o         = cnt_r[ratio_lp-1] & a_v_i & ~a_reset_i & ~b_reset_i;
-  assign a_ready_and_o = cnt_r[ratio_lp-1] & b_ready_and_i & ~a_reset_i & ~b_reset_i;
+         ,.clear_i(1'b0)
+         ,.up_i(1'b1)
+         ,.count_r_o(cnt_r)
+         );
+      assign b_v_o         = cnt_r[ratio_lp-1] & a_v_i & ~a_reset_i & ~b_reset_i;
+      assign a_ready_and_o = cnt_r[ratio_lp-1] & b_ready_and_i & ~a_reset_i & ~b_reset_i;
+    end
 
   //synopsys translate_off
   initial
