@@ -1,0 +1,5 @@
+{ "memories": [
+  {"width":  64, "depth":  512, "mux": 2},
+  {"width":  32, "depth":  1024, "mux": 2, "mask": 0}
+  ]
+}
