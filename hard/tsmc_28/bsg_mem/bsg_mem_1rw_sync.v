@@ -7,7 +7,7 @@
               .CLK      ( clk_i         )                       \
              ,.CEB      ( ~v_i          )                       \
              ,.WEB      ( ~w_i          )                       \
-              .A        ( addr_i        )                       \
+             ,.A        ( addr_i        )                       \
              ,.D        ( data_i        )                       \
              ,.Q        ( data_o        )                       \
              ,.CLKW     ( clk_i         )                       \
