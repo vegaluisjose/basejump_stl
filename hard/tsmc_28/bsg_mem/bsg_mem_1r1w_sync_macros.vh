@@ -1,3 +1,6 @@
+`ifndef BSG_MEM_1R1W_SYNC_MACROS_VH
+`define BSG_MEM_1R1W_SYNC_MACROS_VH
+
 //
 // Synchronous 2-port ram.
 //
@@ -73,3 +76,5 @@ if (els_p == words && width_p == bits)                          \
              ,.PTSEL    ( 2'b00         )                       \
             );                                                  \
   end
+
+`endif
