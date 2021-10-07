@@ -40,8 +40,8 @@
              ,.A        ( addr_i        )                       \
              ,.D        ( data_i        )                       \
              ,.Q        ( data_o        )                       \
-             ,.RTSEL    ( 2'01          )                       \
-             ,.WTSEL    ( 2'00          )                       \
+             ,.RTSEL    ( 2'b01         )                       \
+             ,.WTSEL    ( 2'b00         )                       \
             );                                                  \
     end
 
