@@ -32,6 +32,7 @@ module bsg_mem_1rw_sync_mask_write_byte #(parameter `BSG_INV_PARAM(data_width_p)
     , output logic [`BSG_SAFE_MINUS(data_width_p,1):0]  data_o
     );
 
+    // synopsys translate_off
     initial begin
       if (latch_last_read_p && !{latch_last_read_en})
         $error("BSG ERROR: latch_last_read_p is set but unsupported");
@@ -40,7 +41,6 @@ module bsg_mem_1rw_sync_mask_write_byte #(parameter `BSG_INV_PARAM(data_width_p)
     end
     // synopsys translate_on
 
-    // synopsys translate_off
     if (0) begin end else
     // Hardened macro selections
     {sram_cfg}
