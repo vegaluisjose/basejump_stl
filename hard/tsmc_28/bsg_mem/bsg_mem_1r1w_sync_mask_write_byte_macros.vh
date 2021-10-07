@@ -9,9 +9,16 @@
 // twrcc, otherwise will incur indeterminate result. 
 //
 
+`define bsg_mem_1r1w_sync_mask_write_2rf_byte_macro(words,bits,mux) \
+  `bsg_mem_1r1w_sync_mask_write_byte_macro(words,bits)
+`define bsg_mem_1r1w_sync_mask_write_2sram_byte_macro(words,bits,mux) \
+  `bsg_mem_1r1w_sync_mask_write_byte_macro(words,bits)
 `define bsg_mem_1r1w_sync_mask_write_2hdsram_byte_macro(words,bits,mux) \
+  `bsg_mem_1r1w_sync_mask_write_byte_macro(words,bits)
+
+`define bsg_mem_1r1w_sync_mask_write_byte_macro(words,bits) \
 if (els_p == words && width_p == bits)                          \
-  begin: wrap                                                   \              
+  begin: wrap                                                   \
     logic [width_p-1:0] w_mask_li;                              \
     bsg_expand_bitmask                                          \
      #(.in_width_p(write_mask_width_lp), .expand_p(8))          \
