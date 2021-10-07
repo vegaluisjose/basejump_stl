@@ -29,7 +29,7 @@ if (els_p == words && width_p == bits)                          \
 `define bsg_mem_1r1w_sync_mask_write_2sram_bit_macro(words,bits,mux) \
 if (els_p == words && width_p == bits)                          \
   begin: macro                                                  \
-          tsmc28_2rw_d``words``_w``bits``_m``mux``_2sram_bit mem \
+          tsmc28_2rw_d``words``_w``bits``_m``mux``_bit_2sram mem \
             (                                                   \
               .AA       ( w_addr_i      )                       \
              ,.DA       ( w_data_i      )                       \
@@ -55,7 +55,7 @@ if (els_p == words && width_p == bits)                          \
 `define bsg_mem_1r1w_sync_mask_write_2hdsram_bit_macro(words,bits,mux) \
 if (els_p == words && width_p == bits)                          \
   begin: macro                                                  \
-          tsmc28_2rw_d``words``_w``bits``_m``mux``_2hdsram_bit mem \
+          tsmc28_2rw_d``words``_w``bits``_m``mux``_bit_2hdsram mem \
             (                                                   \
               .AA       ( w_addr_i      )                       \
              ,.DA       ( w_data_i      )                       \

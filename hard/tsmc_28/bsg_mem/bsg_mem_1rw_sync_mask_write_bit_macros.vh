@@ -4,7 +4,7 @@
 `define bsg_mem_1rw_sync_mask_write_bit_1rf_macro(words,bits,mux)       \
   if (harden_p && els_p == words && width_p == bits) \
     begin: macro                                     \
-          tsmc28_1rw_d``words``_w``bits``_m``mux``_1rf_bit mem  \
+          tsmc28_1rw_d``words``_w``bits``_m``mux``_bit_1rf mem  \
             (                                                   \
               .CLK      ( clk_i         )                       \
              ,.CEB      ( ~v_i          )                       \
@@ -20,7 +20,7 @@
 `define bsg_mem_1rw_sync_mask_write_bit_1sram_macro(words,bits,mux)       \
   if (harden_p && els_p == words && width_p == bits) \
     begin: macro                                     \
-          tsmc28_1rw_d``words``_w``bits``_m``mux``_1sram_bit mem  \
+          tsmc28_1rw_d``words``_w``bits``_m``mux``_bit_1sram mem  \
             (                                                   \
               .CLK      ( clk_i         )                       \
              ,.CEB      ( ~v_i          )                       \
@@ -36,7 +36,7 @@
 `define bsg_mem_1rw_sync_mask_write_bit_1hdsram_macro(words,bits,mux)       \
   if (harden_p && els_p == words && width_p == bits) \
     begin: macro                                     \
-          tsmc28_1rw_d``words``_w``bits``_m``mux``_1hdsram_bit mem  \
+          tsmc28_1rw_d``words``_w``bits``_m``mux``_bit_1hdsram mem  \
             (                                                   \
               .CLK      ( clk_i         )                       \
              ,.CEB      ( ~v_i          )                       \

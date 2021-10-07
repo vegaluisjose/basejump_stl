@@ -4,7 +4,7 @@
 `define bsg_mem_2rw_sync_mask_write_bit_2sram_macro(words,bits,mux)       \
   if (harden_p && els_p == words && width_p == bits) \
     begin: macro                                     \
-          tsmc28_2rw_d``words``_w``bits``_m``mux``_2sram_bit mem  \
+          tsmc28_2rw_d``words``_w``bits``_m``mux``_bit_2sram mem  \
             (                                                   \
               .CLKA     ( clk_i         )                       \
              ,.CEBA     ( ~a_v_i        )                       \
@@ -31,7 +31,7 @@
 `define bsg_mem_2rw_sync_mask_write_bit_2hdsram_macro(words,bits,mux)       \
   if (harden_p && els_p == words && width_p == bits) \
     begin: macro                                     \
-          tsmc28_2rw_d``words``_w``bits``_m``mux``_2hdsram_bit mem  \
+          tsmc28_2rw_d``words``_w``bits``_m``mux``_bit_2hdsram mem  \
             (                                                   \
               .CLKA     ( clk_i         )                       \
              ,.CEBA     ( ~a_v_i        )                       \
