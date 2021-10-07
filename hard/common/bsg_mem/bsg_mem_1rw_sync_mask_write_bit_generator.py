@@ -31,12 +31,14 @@ module bsg_mem_1rw_sync_mask_write_bit #(parameter `BSG_INV_PARAM(width_p)
     , output logic [`BSG_SAFE_MINUS(width_p,1):0]  data_o
     );
 
+    // synopsys translate_off
     initial begin
       if (latch_last_read_p && !{latch_last_read_en})
         $error("BSG ERROR: latch_last_read_p is set but unsupported");
       if (enable_clock_gating_p && !{enable_clock_gating_en})
         $error("BSG ERROR: enable_clock_gating_p is set but unsupported");
     end
+    // synopsys translate_on
 
     if (0) begin end else
     // Hardened macro selections

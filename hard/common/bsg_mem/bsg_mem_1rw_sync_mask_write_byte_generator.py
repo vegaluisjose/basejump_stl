@@ -38,7 +38,9 @@ module bsg_mem_1rw_sync_mask_write_byte #(parameter `BSG_INV_PARAM(data_width_p)
       if (enable_clock_gating_p && !{enable_clock_gating_en})
         $error("BSG ERROR: enable_clock_gating_p is set but unsupported");
     end
+    // synopsys translate_on
 
+    // synopsys translate_off
     if (0) begin end else
     // Hardened macro selections
     {sram_cfg}

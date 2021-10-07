@@ -39,6 +39,7 @@ def print_ram(
       , output logic [`BSG_SAFE_MINUS(width_p,1):0] r_data_o
     );
   
+    // synopsys translate_off
     initial begin
       if (read_write_same_addr_p && !{read_write_same_addr_en})
         $error("BSG ERROR: read_write_same_addr_p is set but unsupported");
@@ -47,6 +48,7 @@ def print_ram(
       if (disable_collision_warning_p && !{disable_collision_warning_en})
         $warning("BSG ERROR: disable_collision_warning_p is set but unsupported");
     end
+    // synopsys translate_on
   
     if (0) begin end else
     // Hardened macro selections
