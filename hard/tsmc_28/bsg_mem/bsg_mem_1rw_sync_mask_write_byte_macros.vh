@@ -15,7 +15,7 @@ if (els_p == words && data_width_p == bits)                     \
     bsg_expand_bitmask                                          \
      #(.in_width_p(write_mask_width_lp), .expand_p(8))          \
      wmask_expand                                               \
-      (.i(w_mask_i)                                             \
+      (.i(write_mask_i)                                         \
        ,.o(w_mask_li)                                           \
        );                                                       \
                                                                 \
