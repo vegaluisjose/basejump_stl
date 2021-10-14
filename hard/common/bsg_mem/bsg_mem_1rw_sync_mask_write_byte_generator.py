@@ -91,7 +91,7 @@ def create_cfg(memgen_json):
     for m in memgen_json["memories"]:
         c = memgen_defaults.copy()
         c.update(m)
-        if c["ports"] != "1rw":
+        if c["mask"] != 8 or c["ports"] != "1rw":
             continue
         if c["adbanks"] != 1 or c["awbanks"] != 1:
             memgen_cfg += "\t`bsg_mem_1rw_sync_mask_write_byte_banked_macro({depth},{width},{awbanks},{adbanks}) else\n".format(
