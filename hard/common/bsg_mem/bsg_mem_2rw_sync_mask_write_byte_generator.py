@@ -107,7 +107,7 @@ def create_cfg(memgen_json):
     for m in memgen_json["memories"]:
         c = memgen_defaults.copy()
         c.update(m)
-        if c["mask"] != 8 or c["ports"] != "2rw":
+        if c["ports"] != "2rw":
             continue
         if c["adbanks"] != 1 or c["awbanks"] != 1:
             print("Banking is not currently supported for 2rw");
