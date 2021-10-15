@@ -5,8 +5,7 @@
 `include "bsg_defines.v"
 
 module bsg_counter_set_en
-  #(parameter `BSG_INV_PARAM(max_val_p)
-    , parameter lg_max_val_lp=`BSG_WIDTH(max_val_p)
+  #(parameter lg_max_val_lp=0
     , parameter reset_val_p=0
   )
   (
