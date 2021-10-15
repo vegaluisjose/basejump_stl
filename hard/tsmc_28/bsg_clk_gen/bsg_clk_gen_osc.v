@@ -78,6 +78,7 @@
 
 `timescale 1ps/1ps
 
+`include "bsg_defines.v"
 `include "bsg_clk_gen.vh"
 
 module bsg_clk_gen_osc
@@ -169,7 +170,5 @@ module bsg_clk_gen_osc
    //           async_reset_neg,fb_clk,adg_int,fb_tag_r,fb_we_r);
 
 endmodule // bsg_clk_gen_osc
-
-`BSG_ABSTRACT_MODULE(bsg_clk_gen_osc)
 
 
